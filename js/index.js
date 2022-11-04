@@ -305,7 +305,7 @@ let vetorHexCores = [
 const nomEscolhidos = [];
 const hexEscolhidos = [];
 
-function myFunction()
+function main()
 {
 
 
@@ -324,6 +324,8 @@ var nomEscolhido = nomEscolhidos[p];
 var hexEscolhido = hexEscolhidos[p];
 
 alert('\n\n'+nomEscolhido+ '    ' +hexEscolhido+'\n\n');
+var qtdVidas = 3;
+var maiormenor = '';
 
 for (x=0;x<3;x++){
 
@@ -336,13 +338,23 @@ for (x=0;x<3;x++){
         x=3;
     }
     else{
-        alert('Errou canalha');
+
+        if (cor<nomEscolhido){
+            maiormenor = 'menor';
+        }else{
+            maiormenor='maior';
+        }
+       
+        alert(
+            'Você errou!\n' +
+            `Dica: Sua cor é alfabéticamente ${maiormenor} que a minha!\n\n` +
+            `Você ainda tem ${3-x} chances`
+        );
     }
 
 }
 
-
   
 }
 
-myFunction();
+main();

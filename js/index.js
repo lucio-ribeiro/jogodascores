@@ -323,33 +323,41 @@ const p = Math.floor(Math.random() * 9);
 var nomEscolhido = nomEscolhidos[p];
 var hexEscolhido = hexEscolhidos[p];
 
-alert('\n\n'+nomEscolhido+ '    ' +hexEscolhido+'\n\n');
-var qtdVidas = 3;
+nomEscolhido
+
 var maiormenor = '';
 
-for (x=0;x<3;x++){
+for (x=1;x<=4;x++){
 
-    var cor=prompt('Estou pensando em uma dessas cores: \n\n' + nomEscolhidos + "\n\nQual cor você acha que estou pensando? ");
+    var cor=prompt('Estou pensando em uma dessas cores: \n\n' + nomEscolhidos[0] + ', ' + nomEscolhidos[1] + ', ' + nomEscolhidos[2] + ', ' + nomEscolhidos[3] + ', ' + nomEscolhidos[4] + ', ' 
+    + nomEscolhidos[5] + ', ' + nomEscolhidos[6] + ', ' + nomEscolhidos[7] + ', '  + nomEscolhidos[8] + ', ' + nomEscolhidos[9] + "\n\nQual cor você acha que estou pensando? ");
     
     if (cor == nomEscolhido){
-        alert('Acertou mizeravi');
+        alert('PARABÉNS VOCÊ ACERTOU!');
         let container = document.getElementById('body');
         container.style.backgroundColor = hexEscolhido;
-        x=3;
+        break;
     }
     else{
 
-        if (cor<nomEscolhido){
-            maiormenor = 'menor';
+        if(x==4){
+            alert('Infelizmente você perdeu!\n'+
+            `a cor escolhida era: ${nomEscolhido}`);
+
         }else{
-            maiormenor='maior';
+
+            if (cor<nomEscolhido){
+                maiormenor = 'menor';
+            }else{
+                maiormenor='maior';
+            }
+        
+            alert(
+                'Você errou!\n' +
+                `Dica: Sua cor é alfabéticamente ${maiormenor} que a minha!\n\n` +
+                `Você ainda tem ${4-x} chances`
+            );
         }
-       
-        alert(
-            'Você errou!\n' +
-            `Dica: Sua cor é alfabéticamente ${maiormenor} que a minha!\n\n` +
-            `Você ainda tem ${3-x} chances`
-        );
     }
 
 }

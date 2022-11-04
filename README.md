@@ -1,2 +1,0 @@
-# jogodascores
-jogo das cores

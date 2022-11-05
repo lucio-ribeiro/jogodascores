@@ -302,8 +302,8 @@ let vetorHexCores = [
 ];
 
 
-const nomEscolhidos = [];
-const hexEscolhidos = [];
+let nomEscolhidos = [];
+let hexEscolhidos = [];
 
 function main()
 {
@@ -311,8 +311,26 @@ function main()
 
 for ( i=0;i<10;i++){
     const j = Math.floor(Math.random() * 147);
-    nomEscolhidos.push(vetorNumCores[j]);
-    hexEscolhidos.push(vetorHexCores[j]);
+    if (nomEscolhidos.length > 0){
+
+        for(let a=0; a<nomEscolhidos.length;a++){
+            if (vetorNumCores[j] == nomEscolhidos[a]){
+                const j = Math.floor(Math.random() * 147);
+                break;
+            }else{
+                if(a == nomEscolhidos.length - 1){
+                    nomEscolhidos.push(vetorNumCores[j]);
+                    hexEscolhidos.push(vetorHexCores[j]);
+                }
+            }
+        }
+        
+    }else{
+
+        nomEscolhidos.push(vetorNumCores[j]);
+        hexEscolhidos.push(vetorHexCores[j]);
+
+    }
 
 }
 
